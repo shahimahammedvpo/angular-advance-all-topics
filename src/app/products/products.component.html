@@ -1,0 +1,16 @@
+<h2>products</h2>
+@if(loading){
+    <p>loading products...</p>
+}
+@else {
+    @if (products.length>0) {
+        @for (product of products; track product.id) {
+            <img [src]="product.thumbnail" [alt]="product.title"/>
+            <h3>{{product.title}}</h3>
+            <p>{{product.price}}</p>
+        }
+    }
+    @else if (!errorMessage) {
+        <p>no products found</p>
+    }
+}
